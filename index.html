@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tu Web Profesional desde 500€ — Business Bots</title>
+<meta name="description" content="Landing web profesional o interfaz de reservas por WhatsApp desde 500€. Mantenimiento 20€/mes. Diseño moderno y responsive.">
+<meta property="og:title" content="Tu Web Profesional desde 500€ — Business Bots">
+<meta property="og:description" content="Landing web profesional o interfaz de reservas por WhatsApp desde 500€. Mantenimiento 20€/mes.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #7c5cff;
+  --success: #0ecb81;
+  --warning: #ffd93d;
+  --whatsapp: #25d366;
+  --bg: #000000;
+  --bg-secondary: #0a0a0a;
+  --card: #111111;
+  --text: #ffffff;
+  --text-muted: #888888;
+  --border: #222222;
+  --shadow: 0 8px 32px rgba(0,0,0,0.4);
+  --shadow-hover: 0 16px 48px rgba(124, 92, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: all 0.3s ease;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.95);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.logo img {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.lang-selector {
+  display: flex;
+  gap: 2px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 6px;
+}
+
+.lang-btn {
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 120px 0 140px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary), var(--success));
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  border: 1px solid rgba(124, 92, 255, 0.3);
+}
+
+.hero h1 {
+  font-size: 72px;
+  font-weight: 800;
+  margin-bottom: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff, #cccccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  color: var(--text-muted);
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.price-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 60px 0;
+  flex-wrap: wrap;
+}
+
+.price-main {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+
+.price-monthly {
+  font-size: 22px;
+  color: var(--text-muted);
+  background: var(--card);
+  padding: 16px 24px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  font-weight: 400;
+}
+
+.cta-main {
+  margin: 60px 0;
+}
+
+.btn {
+  padding: 20px 40px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, var(--whatsapp), #20b858);
+  color: white;
+  font-size: 20px;
+  padding: 24px 48px;
+  box-shadow: 0 16px 40px rgba(37, 211, 102, 0.3);
+  border: 1px solid rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(37, 211, 102, 0.4);
+  background: linear-gradient(135deg, #20b858, var(--whatsapp));
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--border);
+  margin: 0 12px;
+  padding: 18px 36px;
+}
+
+.btn-secondary:hover {
+  background: var(--card);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124, 92, 255, 0.2);
+}
+
+/* Features Section */
+.features {
+  padding: 140px 0;
+  background: var(--bg-secondary);
+}
+
+.features h2 {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 80px;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 32px;
+}
+
+.feature-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  padding: 60px 40px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(124, 92, 255, 0.3);
+}
+
+.feature-icon {
+  font-size: 64px;
+  margin-bottom: 32px;
+  display: block;
+}
+
+.feature-icon-img {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 32px;
+  display: block;
+  border-radius: 24px;
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+
+.feature-card h3 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/* Examples Section */
+.examples {
+  padding: 140px 0;
+}
+
+.examples h2 {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 80px;
+  letter-spacing: -0.02em;
+}
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 32px;
+}
+
+.example-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.4s ease;
+}
+
+.example-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(124, 92, 255, 0.3);
+}
+
+.example-image {
+  height: 240px;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.example-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.example-content {
+  padding: 40px 32px;
+}
+
+.example-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.example-desc {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Pricing Section */
+.pricing {
+  padding: 140px 0;
+  background: var(--bg-secondary);
+  text-align: center;
+}
+
+.pricing h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+
+.pricing-subtitle {
+  font-size: 22px;
+  color: var(--text-muted);
+  margin-bottom: 80px;
+  font-weight: 300;
+}
+
+.pricing-card {
+  background: var(--card);
+  border: 2px solid var(--primary);
+  border-radius: 40px;
+  padding: 80px 60px;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-hover);
+  position: relative;
+}
+
+.pricing-card::before {
+  content: 'MEJOR OFERTA';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--primary), var(--success));
+  color: white;
+  padding: 12px 32px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: 1px solid rgba(124, 92, 255, 0.3);
+}
+
+.pricing-header {
+  margin-bottom: 50px;
+}
+
+.pricing-price {
+  font-size: 72px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+}
+
+.pricing-monthly {
+  font-size: 22px;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.pricing-features {
+  list-style: none;
+  margin: 50px 0;
+  text-align: left;
+}
+
+.pricing-features li {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 18px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 400;
+}
+
+.pricing-features li:last-child {
+  border-bottom: none;
+}
+
+.pricing-features li::before {
+  content: "✅";
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+/* Contact Section */
+.contact {
+  padding: 140px 0;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+
+.contact-subtitle {
+  font-size: 22px;
+  color: var(--text-muted);
+  margin-bottom: 80px;
+  font-weight: 300;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin: 80px 0;
+}
+
+.contact-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  padding: 50px 40px;
+  box-shadow: var(--shadow);
+  transition: all 0.4s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(124, 92, 255, 0.3);
+}
+
+.contact-icon {
+  font-size: 56px;
+  margin-bottom: 24px;
+}
+
+.contact-card h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.contact-card a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 100px 0 50px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.footer-section h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.footer-section a {
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 16px;
+  transition: color 0.3s;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.footer-section a:hover {
+  color: var(--primary);
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.social-link {
+  width: 56px;
+  height: 56px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.4s ease;
+}
+
+.social-link:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(124, 92, 255, 0.3);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 50px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+  
+  .hero {
+    padding: 100px 0 120px;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+  }
+  
+  .hero-subtitle {
+    font-size: 20px;
+  }
+  
+  .price-display {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .price-main {
+    font-size: 56px;
+  }
+  
+  .btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+    padding: 20px 32px;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 0;
+  }
+  
+  .header-controls {
+    gap: 20px;
+  }
+  
+  .features-grid,
+  .examples-grid,
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+  
+  .pricing-card {
+    margin: 0 16px;
+    padding: 60px 40px;
+  }
+  
+  .features,
+  .examples,
+  .pricing,
+  .contact {
+    padding: 100px 0;
+  }
+  
+  .features h2,
+  .examples h2,
+  .pricing h2,
+  .contact h2 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  .hero {
+    padding: 80px 0 100px;
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+  }
+  
+  .price-main {
+    font-size: 48px;
+  }
+  
+  .btn-whatsapp {
+    font-size: 18px;
+    padding: 18px 28px;
+  }
+  
+  .features h2,
+  .examples h2,
+  .pricing h2,
+  .contact h2 {
+    font-size: 32px;
+  }
+  
+  .feature-card,
+  .example-card,
+  .contact-card {
+    padding: 40px 24px;
+  }
+  
+  .pricing-card {
+    padding: 50px 32px;
+  }
+  
+  .pricing-price {
+    font-size: 56px;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1755725396/ChatGPT_Image_Apr_16_2025_12_31_00_AM_pbed1s.png" alt="Business Bots Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <svg viewBox="0 0 42 42" fill="none" style="display: none;">
+          <rect width="42" height="42" rx="14" fill="url(#logoGrad)"/>
+          <path d="M12 12h18c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2h-12l-4 4v-4h-2c-1.1 0-2-.9-2-2V14c0-1.1.9-2 2-2z" fill="white"/>
+          <circle cx="19" cy="20" r="1.8" fill="#7c5cff"/>
+          <circle cx="23" cy="20" r="1.8" fill="#7c5cff"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#7c5cff"/>
+              <stop offset="100%" style="stop-color:#0ecb81"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span data-i18n="brand">Business Bots</span>
+      </div>
+      
+      <div class="header-controls">
+        <div class="lang-selector">
+          <button class="lang-btn active" onclick="changeLanguage('es')">ES</button>
+          <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+          <button class="lang-btn" onclick="changeLanguage('fr')">FR</button>
+          <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
+          <button class="lang-btn" onclick="changeLanguage('it')">IT</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="badge" data-i18n="badge">Oferta Especial</div>
+      <h1 data-i18n="hero.title">Tu Web Profesional desde 500€</h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">Landing page o interfaz de reservas conectada a WhatsApp. Diseño moderno, responsive y listo para convertir visitantes en clientes.</p>
+      
+      <div class="price-display">
+        <div class="price-main">500€</div>
+        <div class="price-monthly" data-i18n="price.monthly">+ 20€/mes mantenimiento</div>
+      </div>
+      
+      <div class="cta-main">
+        <a href="#" class="btn btn-whatsapp" onclick="openWhatsApp()" data-i18n="cta.whatsapp">
+          📱 Contactar por WhatsApp
+        </a>
+      </div>
+      
+      <div style="margin-top: 40px;">
+        <button class="btn btn-secondary" onclick="scrollToExamples()" data-i18n="cta.examples">
+          Ver Ejemplos
+        </button>
+        <button class="btn btn-secondary" onclick="scrollToContact()" data-i18n="cta.contact">
+          Más Información
+        </button>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <h2 data-i18n="features.title">¿Qué Incluye tu Web?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1756857551/ChatGPT_Image_Sep_3_2025_01_51_50_AM_bimpje.png" alt="Diseño Profesional" class="feature-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span class="feature-icon" style="display: none;">🎨</span>
+            <h3 data-i18n="features.design.title">Diseño Profesional</h3>
+            <p data-i18n="features.design.desc">Landing page moderna y personalizada, optimizada para convertir visitantes en clientes. Diseño único adaptado a tu marca.</p>
+          </div>
+          
+          <div class="feature-card">
+            <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1756857551/ChatGPT_Image_Sep_3_2025_01_53_45_AM_azca9f.png" alt="100% Responsive" class="feature-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span class="feature-icon" style="display: none;">📱</span>
+            <h3 data-i18n="features.responsive.title">100% Responsive</h3>
+            <p data-i18n="features.responsive.desc">Tu web se verá perfecta en móviles, tablets y ordenadores. Adaptación automática a cualquier tamaño de pantalla.</p>
+          </div>
+          
+          <div class="feature-card">
+            <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1756857551/ChatGPT_Image_Sep_3_2025_01_55_26_AM_h9sihm.png" alt="Optimización SEO" class="feature-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span class="feature-icon" style="display: none;">🚀</span>
+            <h3 data-i18n="features.seo.title">Optimización SEO</h3>
+            <p data-i18n="features.seo.desc">Configuración básica de SEO incluida para que tu web aparezca en Google y atraiga más clientes potenciales.</p>
+          </div>
+          
+          <div class="feature-card">
+            <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1756858302/ChatGPT_Image_Sep_3_2025_02_11_15_AM_grgzi6.png" alt="Certificado SSL" class="feature-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span class="feature-icon" style="display: none;">🛡️</span>
+            <h3 data-i18n="features.ssl.title">Certificado SSL</h3>
+            <p data-i18n="features.ssl.desc">Seguridad garantizada con certificado SSL incluido. Tu web será segura y confiable para todos los visitantes.</p>
+          </div>
+          
+          <div class="feature-card">
+            <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1756857551/ChatGPT_Image_Sep_3_2025_01_58_14_AM_zcc72t.png" alt="Soporte Técnico" class="feature-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span class="feature-icon" style="display: none;">🔧</span>
+            <h3 data-i18n="features.support.title">Soporte Técnico</h3>
+            <p data-i18n="features.support.desc">Actualizaciones regulares y soporte técnico completo. Siempre tendrás ayuda cuando la necesites.</p>
+          </div>
+          
+          <div class="feature-card">
+            <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1756857551/ChatGPT_Image_Sep_3_2025_01_58_54_AM_hcyu11.png" alt="Copias de Seguridad" class="feature-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span class="feature-icon" style="display: none;">💾</span>
+            <h3 data-i18n="features.backup.title">Copias de Seguridad</h3>
+            <p data-i18n="features.backup.desc">Copias de seguridad automáticas diarias. Tu web estará siempre protegida contra cualquier problema técnico.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="examples" id="examples">
+      <h2 data-i18n="examples.title">Perfecto para tu Negocio</h2>
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="example-image">
+            <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1756856745/ChatGPT_Image_Sep_3_2025_01_38_10_AM_zxlize.png" alt="Restaurantes" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;" onerror="this.style.display='none'; this.parentElement.innerHTML='🍕'; this.parentElement.style.fontSize='80px'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
+          </div>
+          <div class="example-content">
+            <h3 class="example-title" data-i18n="examples.restaurant.title">Restaurantes</h3>
+            <p class="example-desc" data-i18n="examples.restaurant.desc">Menú online, reservas automáticas y pedidos por WhatsApp</p>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-image">
+            <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1756856748/ChatGPT_Image_Sep_3_2025_01_38_07_AM_mg0nbt.png" alt="Peluquerías & Estética" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;" onerror="this.style.display='none'; this.parentElement.innerHTML='💇‍♀️'; this.parentElement.style.fontSize='80px'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
+          </div>
+          <div class="example-content">
+            <h3 class="example-title" data-i18n="examples.beauty.title">Peluquerías & Estética</h3>
+            <p class="example-desc" data-i18n="examples.beauty.desc">Citas online, catálogo de servicios y confirmaciones automáticas</p>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-image">
+            <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1756856748/ChatGPT_Image_Sep_3_2025_01_38_07_AM_mg0nbt.png" alt="Clínicas & Consultas" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;" onerror="this.style.display='none'; this.parentElement.innerHTML='🏥'; this.parentElement.style.fontSize='80px'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
+          </div>
+          <div class="example-content">
+            <h3 class="example-title" data-i18n="examples.clinic.title">Clínicas & Consultas</h3>
+            <p class="example-desc" data-i18n="examples.clinic.desc">Gestión de citas médicas y consultas organizadas</p>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-image">
+            <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1756856744/ChatGPT_Image_Sep_3_2025_01_37_52_AM_zhcxxd.png" alt="Gimnasios & Fitness" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;" onerror="this.style.display='none'; this.parentElement.innerHTML='🏋️‍♂️'; this.parentElement.style.fontSize='80px'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
+          </div>
+          <div class="example-content">
+            <h3 class="example-title" data-i18n="examples.gym.title">Gimnasios & Fitness</h3>
+            <p class="example-desc" data-i18n="examples.gym.desc">Reserva de clases, horarios y seguimiento de miembros</p>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-image">
+            <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1756856745/ChatGPT_Image_Sep_3_2025_01_45_24_AM_oldn1x.png" alt="Servicios Profesionales" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;" onerror="this.style.display='none'; this.parentElement.innerHTML='🏠'; this.parentElement.style.fontSize='80px'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
+          </div>
+          <div class="example-content">
+            <h3 class="example-title" data-i18n="examples.services.title">Servicios Profesionales</h3>
+            <p class="example-desc" data-i18n="examples.services.desc">Abogados, consultores, arquitectos y más</p>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-image">
+            <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1756856744/ChatGPT_Image_Sep_3_2025_01_37_47_AM_fj7jxm.png" alt="Tiendas & Retail" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;" onerror="this.style.display='none'; this.parentElement.innerHTML='🛍️'; this.parentElement.style.fontSize='80px'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
+          </div>
+          <div class="example-content">
+            <h3 class="example-title" data-i18n="examples.retail.title">Tiendas & Retail</h3>
+            <p class="example-desc" data-i18n="examples.retail.desc">Catálogo online y ventas directas por WhatsApp</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing">
+      <h2 data-i18n="pricing.title">Precio Transparente</h2>
+      <p class="pricing-subtitle" data-i18n="pricing.subtitle">Sin sorpresas, sin costes ocultos. Todo incluido desde el primer día.</p>
+      
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div class="pricing-price">500€</div>
+          <div class="pricing-monthly" data-i18n="pricing.monthly">+ 20€/mes mantenimiento</div>
+        </div>
+        
+        <ul class="pricing-features">
+          <li data-i18n="pricing.features.design">Diseño web profesional y personalizado</li>
+          <li data-i18n="pricing.features.responsive">100% responsive (móvil, tablet, desktop)</li>
+          <li data-i18n="pricing.features.seo">Optimización SEO básica incluida</li>
+          <li data-i18n="pricing.features.ssl">Certificado SSL de seguridad</li>
+          <li data-i18n="pricing.features.support">Soporte técnico y actualizaciones</li>
+          <li data-i18n="pricing.features.backup">Copias de seguridad automáticas</li>
+        </ul>
+        
+        <a href="#" class="btn btn-whatsapp" onclick="openWhatsApp()" data-i18n="pricing.cta">
+          📱 ¡Empezar Ahora!
+        </a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2 data-i18n="contact.title">Contacta con Nosotros</h2>
+      <p class="contact-subtitle" data-i18n="contact.subtitle">Estamos aquí para ayudarte. Elige tu método de contacto preferido.</p>
+      
+      <div class="contact-methods">
+        <div class="contact-card">
+          <div class="contact-icon">📱</div>
+          <h3 data-i18n="contact.whatsapp.title">WhatsApp</h3>
+          <p data-i18n="contact.whatsapp.desc">Respuesta inmediata</p>
+          <a href="#" onclick="openWhatsApp()">+34 631 69 05 24</a>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">📧</div>
+          <h3 data-i18n="contact.email.title">Email</h3>
+          <p data-i18n="contact.email.desc">Respuesta en 24h</p>
+          <a href="mailto:businessbots.info.gmail.com">businessbots.info.gmail.com</a>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">📞</div>
+          <h3 data-i18n="contact.phone.title">Teléfono</h3>
+          <p data-i18n="contact.phone.desc">Lunes a Viernes 9-18h</p>
+          <a href="tel:+34631690524">+34 631 69 05 24</a>
+        </div>
+      </div>
+      
+      <div style="margin-top: 50px;">
+        <a href="#" class="btn btn-whatsapp" onclick="openWhatsApp()" data-i18n="contact.cta">
+          📱 Contactar Ahora por WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 data-i18n="footer.company.title">Business Bots</h3>
+          <p data-i18n="footer.company.desc">Creamos webs profesionales que convierten visitantes en clientes. Especialistas en integración con WhatsApp.</p>
+          <div class="social-links">
+            <a href="https://instagram.com/businessbots.es" class="social-link" target="_blank">📷</a>
+            <a href="https://facebook.com/businessbots.es" class="social-link" target="_blank">📘</a>
+            <a href="https://linkedin.com/company/businessbots" class="social-link" target="_blank">💼</a>
+            <a href="https://twitter.com/businessbots_es" class="social-link" target="_blank">🐦</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3 data-i18n="footer.services.title">Servicios</h3>
+          <a href="#" data-i18n="footer.services.landing">Landing Pages</a>
+          <a href="#" data-i18n="footer.services.booking">Interfaces de Reservas</a>
+          <a href="#" data-i18n="footer.services.whatsapp">Bots de WhatsApp</a>
+          <a href="#" data-i18n="footer.services.maintenance">Mantenimiento Web</a>
+          <a href="#" data-i18n="footer.services.seo">Optimización SEO</a>
+        </div>
+        
+        <div class="footer-section">
+          <h3 data-i18n="footer.contact.title">Contacto</h3>
+          <a href="tel:+34631690524">📞 +34 631 69 05 24</a>
+          <a href="mailto:businessbots.info.gmail.com">📧 businessbots.info.gmail.com</a>
+          <a href="#" onclick="openWhatsApp()">📱 WhatsApp</a>
+          <a href="#">📍 Madrid, España</a>
+        </div>
+        
+        <div class="footer-section">
+          <h3 data-i18n="footer.legal.title">Legal</h3>
+          <a href="#" data-i18n="footer.legal.privacy">Política de Privacidad</a>
+          <a href="#" data-i18n="footer.legal.terms">Términos y Condiciones</a>
+          <a href="#" data-i18n="footer.legal.cookies">Política de Cookies</a>
+          <a href="#" data-i18n="footer.legal.gdpr">Protección de Datos</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Business Bots. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Internationalization
+    const i18n = {
+      es: {
+        brand: "Business Bots",
+        badge: "Oferta Especial",
+        hero: {
+          title: "Tu Web Profesional desde 500€",
+          subtitle: "Landing page o interfaz de reservas conectada a WhatsApp. Diseño moderno, responsive y listo para convertir visitantes en clientes."
+        },
+        price: {
+          monthly: "+ 20€/mes mantenimiento"
+        },
+        cta: {
+          whatsapp: "📱 Contactar por WhatsApp",
+          examples: "Ver Ejemplos",
+          contact: "Más Información"
+        },
+        features: {
+          title: "¿Qué Incluye tu Web?",
+          design: {
+            title: "Diseño Profesional",
+            desc: "Landing page moderna y personalizada, optimizada para convertir visitantes en clientes. Diseño único adaptado a tu marca."
+          },
+          responsive: {
+            title: "100% Responsive",
+            desc: "Tu web se verá perfecta en móviles, tablets y ordenadores. Adaptación automática a cualquier tamaño de pantalla."
+          },
+          seo: {
+            title: "Optimización SEO",
+            desc: "Configuración básica de SEO incluida para que tu web aparezca en Google y atraiga más clientes potenciales."
+          },
+          ssl: {
+            title: "Certificado SSL",
+            desc: "Seguridad garantizada con certificado SSL incluido. Tu web será segura y confiable para todos los visitantes."
+          },
+          support: {
+            title: "Soporte Técnico",
+            desc: "Actualizaciones regulares y soporte técnico completo. Siempre tendrás ayuda cuando la necesites."
+          },
+          backup: {
+            title: "Copias de Seguridad",
+            desc: "Copias de seguridad automáticas diarias. Tu web estará siempre protegida contra cualquier problema técnico."
+          }
+        },
+        examples: {
+          title: "Perfecto para tu Negocio",
+          restaurant: { title: "Restaurantes", desc: "Menú online, reservas automáticas y pedidos por WhatsApp" },
+          beauty: { title: "Peluquerías & Estética", desc: "Citas online, catálogo de servicios y confirmaciones automáticas" },
+          clinic: { title: "Clínicas & Consultas", desc: "Gestión de citas médicas y consultas organizadas" },
+          gym: { title: "Gimnasios & Fitness", desc: "Reserva de clases, horarios y seguimiento de miembros" },
+          services: { title: "Servicios Profesionales", desc: "Abogados, consultores, arquitectos y más" },
+          retail: { title: "Tiendas & Retail", desc: "Catálogo online y ventas directas por WhatsApp" }
+        },
+        pricing: {
+          title: "Precio Transparente",
+          subtitle: "Sin sorpresas, sin costes ocultos. Todo incluido desde el primer día.",
+          monthly: "+ 20€/mes mantenimiento",
+          features: {
+            design: "Diseño web profesional y personalizado",
+            responsive: "100% responsive (móvil, tablet, desktop)",
+            seo: "Optimización SEO básica incluida",
+            ssl: "Certificado SSL de seguridad",
+            support: "Soporte técnico y actualizaciones",
+            backup: "Copias de seguridad automáticas"
+          },
+          cta: "📱 ¡Empezar Ahora!"
+        },
+        contact: {
+          title: "Contacta con Nosotros",
+          subtitle: "Estamos aquí para ayudarte. Elige tu método de contacto preferido.",
+          whatsapp: { title: "WhatsApp", desc: "Respuesta inmediata" },
+          email: { title: "Email", desc: "Respuesta en 24h" },
+          phone: { title: "Teléfono", desc: "Lunes a Viernes 9-18h" },
+          cta: "📱 Contactar Ahora por WhatsApp"
+        },
+        footer: {
+          company: {
+            title: "Business Bots",
+            desc: "Creamos webs profesionales que convierten visitantes en clientes. Especialistas en integración con WhatsApp."
+          },
+          services: {
+            title: "Servicios",
+            landing: "Landing Pages",
+            booking: "Interfaces de Reservas",
+            whatsapp: "Bots de WhatsApp",
+            maintenance: "Mantenimiento Web",
+            seo: "Optimización SEO"
+          },
+          contact: {
+            title: "Contacto"
+          },
+          legal: {
+            title: "Legal",
+            privacy: "Política de Privacidad",
+            terms: "Términos y Condiciones",
+            cookies: "Política de Cookies",
+            gdpr: "Protección de Datos"
+          },
+          rights: "Todos los derechos reservados."
+        }
+      },
+      en: {
+        brand: "Business Bots",
+        badge: "Special Offer",
+        hero: {
+          title: "Your Professional Website from €500",
+          subtitle: "Landing page or booking interface connected to WhatsApp. Modern, responsive design ready to convert visitors into customers."
+        },
+        price: {
+          monthly: "+ €20/month maintenance"
+        },
+        cta: {
+          whatsapp: "📱 Contact via WhatsApp",
+          examples: "View Examples",
+          contact: "More Information"
+        },
+        features: {
+          title: "What's Included in Your Website?",
+          design: {
+            title: "Professional Design",
+            desc: "Modern and personalized landing page, optimized to convert visitors into customers. Unique design adapted to your brand."
+          },
+          responsive: {
+            title: "100% Responsive",
+            desc: "Your website will look perfect on mobiles, tablets and computers. Automatic adaptation to any screen size."
+          },
+          seo: {
+            title: "SEO Optimization",
+            desc: "Basic SEO configuration included so your website appears on Google and attracts more potential customers."
+          },
+          ssl: {
+            title: "SSL Certificate",
+            desc: "Guaranteed security with SSL certificate included. Your website will be secure and trustworthy for all visitors."
+          },
+          support: {
+            title: "Technical Support",
+            desc: "Regular updates and complete technical support. You'll always have help when you need it."
+          },
+          backup: {
+            title: "Automatic Backups",
+            desc: "Daily automatic backups. Your website will always be protected against any technical problems."
+          }
+        },
+        examples: {
+          title: "Perfect for Your Business",
+          restaurant: { title: "Restaurants", desc: "Online menu, automatic reservations and WhatsApp orders" },
+          beauty: { title: "Beauty Salons & Aesthetics", desc: "Online appointments, service catalog and automatic confirmations" },
+          clinic: { title: "Clinics & Consultations", desc: "Medical appointment management and organized consultations" },
+          gym: { title: "Gyms & Fitness", desc: "Class booking, schedules and member tracking" },
+          services: { title: "Professional Services", desc: "Lawyers, consultants, architects and more" },
+          retail: { title: "Stores & Retail", desc: "Online catalog and direct sales via WhatsApp" }
+        },
+        pricing: {
+          title: "Transparent Pricing",
+          subtitle: "No surprises, no hidden costs. Everything included from day one.",
+          monthly: "+ €20/month maintenance",
+          features: {
+            design: "Professional and personalized web design",
+            responsive: "100% responsive (mobile, tablet, desktop)",
+            seo: "Basic SEO optimization included",
+            ssl: "SSL security certificate",
+            support: "Technical support and updates",
+            backup: "Automatic backups"
+          },
+          cta: "📱 Start Now!"
+        },
+        contact: {
+          title: "Contact Us",
+          subtitle: "We're here to help you. Choose your preferred contact method.",
+          whatsapp: { title: "WhatsApp", desc: "Immediate response" },
+          email: { title: "Email", desc: "Response within 24h" },
+          phone: { title: "Phone", desc: "Monday to Friday 9-18h" },
+          cta: "📱 Contact Now via WhatsApp"
+        },
+        footer: {
+          company: {
+            title: "Business Bots",
+            desc: "We create professional websites that convert visitors into customers. WhatsApp integration specialists."
+          },
+          services: {
+            title: "Services",
+            landing: "Landing Pages",
+            booking: "Booking Interfaces",
+            whatsapp: "WhatsApp Bots",
+            maintenance: "Web Maintenance",
+            seo: "SEO Optimization"
+          },
+          contact: {
+            title: "Contact"
+          },
+          legal: {
+            title: "Legal",
+            privacy: "Privacy Policy",
+            terms: "Terms and Conditions",
+            cookies: "Cookie Policy",
+            gdpr: "Data Protection"
+          },
+          rights: "All rights reserved."
+        }
+      },
+      fr: {
+        brand: "Business Bots",
+        badge: "Offre Spéciale",
+        hero: {
+          title: "Votre Site Web Professionnel dès 500€",
+          subtitle: "Landing page ou interface de réservation connectée à WhatsApp. Design moderne et responsive prêt à convertir les visiteurs en clients."
+        },
+        price: {
+          monthly: "+ 20€/mois maintenance"
+        },
+        cta: {
+          whatsapp: "📱 Contacter via WhatsApp",
+          examples: "Voir Exemples",
+          contact: "Plus d'Informations"
+        },
+        features: {
+          title: "Qu'est-ce qui est Inclus dans Votre Site?",
+          design: {
+            title: "Design Professionnel",
+            desc: "Landing page moderne et personnalisée, optimisée pour convertir les visiteurs en clients. Design unique adapté à votre marque."
+          },
+          responsive: {
+            title: "100% Responsive",
+            desc: "Votre site sera parfait sur mobiles, tablettes et ordinateurs. Adaptation automatique à toute taille d'écran."
+          },
+          seo: {
+            title: "Optimisation SEO",
+            desc: "Configuration SEO de base incluse pour que votre site apparaisse sur Google et attire plus de clients potentiels."
+          },
+          ssl: {
+            title: "Certificat SSL",
+            desc: "Sécurité garantie avec certificat SSL inclus. Votre site sera sécurisé et fiable pour tous les visiteurs."
+          },
+          support: {
+            title: "Support Technique",
+            desc: "Mises à jour régulières et support technique complet. Vous aurez toujours de l'aide quand vous en avez besoin."
+          },
+          backup: {
+            title: "Sauvegardes Automatiques",
+            desc: "Sauvegardes automatiques quotidiennes. Votre site sera toujours protégé contre tout problème technique."
+          }
+        },
+        examples: {
+          title: "Parfait pour Votre Entreprise",
+          restaurant: { title: "Restaurants", desc: "Menu en ligne, réservations automatiques et commandes WhatsApp" },
+          beauty: { title: "Salons de Beauté & Esthétique", desc: "Rendez-vous en ligne, catalogue de services et confirmations automatiques" },
+          clinic: { title: "Cliniques & Consultations", desc: "Gestion des rendez-vous médicaux et consultations organisées" },
+          gym: { title: "Salles de Sport & Fitness", desc: "Réservation de cours, horaires et suivi des membres" },
+          services: { title: "Services Professionnels", desc: "Avocats, consultants, architectes et plus" },
+          retail: { title: "Magasins & Commerce", desc: "Catalogue en ligne et ventes directes via WhatsApp" }
+        },
+        pricing: {
+          title: "Prix Transparent",
+          subtitle: "Pas de surprises, pas de coûts cachés. Tout inclus dès le premier jour.",
+          monthly: "+ 20€/mois maintenance",
+          features: {
+            design: "Design web professionnel et personnalisé",
+            responsive: "100% responsive (mobile, tablette, desktop)",
+            seo: "Optimisation SEO de base incluse",
+            ssl: "Certificat SSL de sécurité",
+            support: "Support technique et mises à jour",
+            backup: "Sauvegardes automatiques"
+          },
+          cta: "📱 Commencer Maintenant!"
+        },
+        contact: {
+          title: "Contactez-Nous",
+          subtitle: "Nous sommes là pour vous aider. Choisissez votre méthode de contact préférée.",
+          whatsapp: { title: "WhatsApp", desc: "Réponse immédiate" },
+          email: { title: "Email", desc: "Réponse sous 24h" },
+          phone: { title: "Téléphone", desc: "Lundi au Vendredi 9h-18h" },
+          cta: "📱 Contacter Maintenant via WhatsApp"
+        },
+        footer: {
+          company: {
+            title: "Business Bots",
+            desc: "Nous créons des sites web professionnels qui convertissent les visiteurs en clients. Spécialistes de l'intégration WhatsApp."
+          },
+          services: {
+            title: "Services",
+            landing: "Landing Pages",
+            booking: "Interfaces de Réservation",
+            whatsapp: "Bots WhatsApp",
+            maintenance: "Maintenance Web",
+            seo: "Optimisation SEO"
+          },
+          contact: {
+            title: "Contact"
+          },
+          legal: {
+            title: "Légal",
+            privacy: "Politique de Confidentialité",
+            terms: "Conditions Générales",
+            cookies: "Politique des Cookies",
+            gdpr: "Protection des Données"
+          },
+          rights: "Tous droits réservés."
+        }
+      },
+      de: {
+        brand: "Business Bots",
+        badge: "Sonderangebot",
+        hero: {
+          title: "Ihre Professionelle Website ab 500€",
+          subtitle: "Landing Page oder Buchungsschnittstelle mit WhatsApp-Verbindung. Modernes, responsives Design bereit, Besucher in Kunden zu verwandeln."
+        },
+        price: {
+          monthly: "+ 20€/Monat Wartung"
+        },
+        cta: {
+          whatsapp: "📱 Kontakt via WhatsApp",
+          examples: "Beispiele Ansehen",
+          contact: "Mehr Informationen"
+        },
+        features: {
+          title: "Was ist in Ihrer Website Enthalten?",
+          design: {
+            title: "Professionelles Design",
+            desc: "Moderne und personalisierte Landing Page, optimiert um Besucher in Kunden zu verwandeln. Einzigartiges Design angepasst an Ihre Marke."
+          },
+          responsive: {
+            title: "100% Responsive",
+            desc: "Ihre Website wird perfekt auf Handys, Tablets und Computern aussehen. Automatische Anpassung an jede Bildschirmgröße."
+          },
+          seo: {
+            title: "SEO-Optimierung",
+            desc: "Grundlegende SEO-Konfiguration inklusive, damit Ihre Website bei Google erscheint und mehr potenzielle Kunden anzieht."
+          },
+          ssl: {
+            title: "SSL-Zertifikat",
+            desc: "Garantierte Sicherheit mit SSL-Zertifikat inklusive. Ihre Website wird sicher und vertrauenswürdig für alle Besucher sein."
+          },
+          support: {
+            title: "Technischer Support",
+            desc: "Regelmäßige Updates und vollständiger technischer Support. Sie haben immer Hilfe, wenn Sie sie brauchen."
+          },
+          backup: {
+            title: "Automatische Backups",
+            desc: "Tägliche automatische Backups. Ihre Website wird immer gegen technische Probleme geschützt sein."
+          }
+        },
+        examples: {
+          title: "Perfekt für Ihr Unternehmen",
+          restaurant: { title: "Restaurants", desc: "Online-Menü, automatische Reservierungen und WhatsApp-Bestellungen" },
+          beauty: { title: "Schönheitssalons & Ästhetik", desc: "Online-Termine, Servicekatalog und automatische Bestätigungen" },
+          clinic: { title: "Kliniken & Beratungen", desc: "Verwaltung medizinischer Termine und organisierte Beratungen" },
+          gym: { title: "Fitnessstudios & Fitness", desc: "Kursbuchung, Zeitpläne und Mitgliederverfolgung" },
+          services: { title: "Professionelle Dienstleistungen", desc: "Anwälte, Berater, Architekten und mehr" },
+          retail: { title: "Geschäfte & Einzelhandel", desc: "Online-Katalog und direkter Verkauf über WhatsApp" }
+        },
+        pricing: {
+          title: "Transparente Preise",
+          subtitle: "Keine Überraschungen, keine versteckten Kosten. Alles inklusive vom ersten Tag an.",
+          monthly: "+ 20€/Monat Wartung",
+          features: {
+            design: "Professionelles und personalisiertes Webdesign",
+            responsive: "100% responsive (Handy, Tablet, Desktop)",
+            seo: "Grundlegende SEO-Optimierung inklusive",
+            ssl: "SSL-Sicherheitszertifikat",
+            support: "Technischer Support und Updates",
+            backup: "Automatische Backups"
+          },
+          cta: "📱 Jetzt Starten!"
+        },
+        contact: {
+          title: "Kontaktieren Sie Uns",
+          subtitle: "Wir sind hier, um Ihnen zu helfen. Wählen Sie Ihre bevorzugte Kontaktmethode.",
+          whatsapp: { title: "WhatsApp", desc: "Sofortige Antwort" },
+          email: { title: "Email", desc: "Antwort innerhalb 24h" },
+          phone: { title: "Telefon", desc: "Montag bis Freitag 9-18 Uhr" },
+          cta: "📱 Jetzt via WhatsApp Kontaktieren"
+        },
+        footer: {
+          company: {
+            title: "Business Bots",
+            desc: "Wir erstellen professionelle Websites, die Besucher in Kunden verwandeln. WhatsApp-Integrationsspezialisten."
+          },
+          services: {
+            title: "Dienstleistungen",
+            landing: "Landing Pages",
+            booking: "Buchungsschnittstellen",
+            whatsapp: "WhatsApp Bots",
+            maintenance: "Web-Wartung",
+            seo: "SEO-Optimierung"
+          },
+          contact: {
+            title: "Kontakt"
+          },
+          legal: {
+            title: "Rechtliches",
+            privacy: "Datenschutzrichtlinie",
+            terms: "Allgemeine Geschäftsbedingungen",
+            cookies: "Cookie-Richtlinie",
+            gdpr: "Datenschutz"
+          },
+          rights: "Alle Rechte vorbehalten."
+        }
+      },
+      it: {
+        brand: "Business Bots",
+        badge: "Offerta Speciale",
+        hero: {
+          title: "Il Tuo Sito Web Professionale da 500€",
+          subtitle: "Landing page o interfaccia di prenotazione connessa a WhatsApp. Design moderno e responsive pronto a convertire i visitatori in clienti."
+        },
+        price: {
+          monthly: "+ 20€/mese manutenzione"
+        },
+        cta: {
+          whatsapp: "📱 Contatta via WhatsApp",
+          examples: "Vedi Esempi",
+          contact: "Maggiori Informazioni"
+        },
+        features: {
+          title: "Cosa è Incluso nel Tuo Sito?",
+          design: {
+            title: "Design Professionale",
+            desc: "Landing page moderna e personalizzata, ottimizzata per convertire i visitatori in clienti. Design unico adattato al tuo brand."
+          },
+          responsive: {
+            title: "100% Responsive",
+            desc: "Il tuo sito sarà perfetto su cellulari, tablet e computer. Adattamento automatico a qualsiasi dimensione dello schermo."
+          },
+          seo: {
+            title: "Ottimizzazione SEO",
+            desc: "Configurazione SEO di base inclusa perché il tuo sito appaia su Google e attragga più clienti potenziali."
+          },
+          ssl: {
+            title: "Certificato SSL",
+            desc: "Sicurezza garantita con certificato SSL incluso. Il tuo sito sarà sicuro e affidabile per tutti i visitatori."
+          },
+          support: {
+            title: "Supporto Tecnico",
+            desc: "Aggiornamenti regolari e supporto tecnico completo. Avrai sempre aiuto quando ne hai bisogno."
+          },
+          backup: {
+            title: "Backup Automatici",
+            desc: "Backup automatici giornalieri. Il tuo sito sarà sempre protetto contro qualsiasi problema tecnico."
+          }
+        },
+        examples: {
+          title: "Perfetto per la Tua Attività",
+          restaurant: { title: "Ristoranti", desc: "Menu online, prenotazioni automatiche e ordini WhatsApp" },
+          beauty: { title: "Saloni di Bellezza & Estetica", desc: "Appuntamenti online, catalogo servizi e conferme automatiche" },
+          clinic: { title: "Cliniche & Consultazioni", desc: "Gestione appuntamenti medici e consultazioni organizzate" },
+          gym: { title: "Palestre & Fitness", desc: "Prenotazione corsi, orari e tracciamento membri" },
+          services: { title: "Servizi Professionali", desc: "Avvocati, consulenti, architetti e altro" },
+          retail: { title: "Negozi & Retail", desc: "Catalogo online e vendite dirette via WhatsApp" }
+        },
+        pricing: {
+          title: "Prezzo Trasparente",
+          subtitle: "Nessuna sorpresa, nessun costo nascosto. Tutto incluso dal primo giorno.",
+          monthly: "+ 20€/mese manutenzione",
+          features: {
+            design: "Design web professionale e personalizzato",
+            responsive: "100% responsive (mobile, tablet, desktop)",
+            seo: "Ottimizzazione SEO di base inclusa",
+            ssl: "Certificato SSL di sicurezza",
+            support: "Supporto tecnico e aggiornamenti",
+            backup: "Backup automatici"
+          },
+          cta: "📱 Inizia Ora!"
+        },
+        contact: {
+          title: "Contattaci",
+          subtitle: "Siamo qui per aiutarti. Scegli il tuo metodo di contatto preferito.",
+          whatsapp: { title: "WhatsApp", desc: "Risposta immediata" },
+          email: { title: "Email", desc: "Risposta entro 24h" },
+          phone: { title: "Telefono", desc: "Lunedì-Venerdì 9-18" },
+          cta: "📱 Contatta Ora via WhatsApp"
+        },
+        footer: {
+          company: {
+            title: "Business Bots",
+            desc: "Creiamo siti web professionali che convertono i visitatori in clienti. Specialisti nell'integrazione WhatsApp."
+          },
+          services: {
+            title: "Servizi",
+            landing: "Landing Pages",
+            booking: "Interfacce di Prenotazione",
+            whatsapp: "Bot WhatsApp",
+            maintenance: "Manutenzione Web",
+            seo: "Ottimizzazione SEO"
+          },
+          contact: {
+            title: "Contatto"
+          },
+          legal: {
+            title: "Legale",
+            privacy: "Privacy Policy",
+            terms: "Termini e Condizioni",
+            cookies: "Cookie Policy",
+            gdpr: "Protezione Dati"
+          },
+          rights: "Tutti i diritti riservati."
+        }
+      }
+    };
+
+    let currentLang = 'es';
+
+    // Language switching
+    function changeLanguage(lang) {
+      currentLang = lang;
+      
+      // Update active language button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // Update all translatable elements
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const translation = getNestedTranslation(i18n[lang], key);
+        if (translation) {
+          element.textContent = translation;
+        }
+      });
+      
+      // Update document language
+      document.documentElement.lang = lang;
+    }
+
+    function getNestedTranslation(obj, path) {
+      return path.split('.').reduce((current, key) => current && current[key], obj);
+    }
+
+    // WhatsApp integration
+    function openWhatsApp() {
+      const phoneNumber = '34631690524';
+      const messages = {
+        es: 'Hola, estoy interesado en la oferta web de 500 € con mantenimiento de 20 €/mes. ¿Podrían darme más información?',
+        en: 'Hello, I\'m interested in the €500 website offer with €20/month maintenance. Could you give me more information?',
+        fr: 'Bonjour, je suis intéressé par l\'offre site web de 500 € avec maintenance de 20 €/mois. Pourriez-vous me donner plus d\'informations?',
+        de: 'Hallo, ich interessiere mich für das 500 € Website-Angebot mit 20 €/Monat Wartung. Könnten Sie mir mehr Informationen geben?',
+        it: 'Ciao, sono interessato all\'offerta sito web di 500 € con manutenzione di 20 €/mese. Potreste darmi maggiori informazioni?'
+      };
+      
+      const message = encodeURIComponent(messages[currentLang]);
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // Smooth scrolling
+    function scrollToExamples() {
+      document.getElementById('examples').scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
+
+    function scrollToContact() {
+      document.getElementById('contact').scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
+
+    // Initialize animations
+    document.addEventListener('DOMContentLoaded', () => {
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+      
+      // Observe elements for animation
+      const animatedElements = document.querySelectorAll('.feature-card, .example-card, .contact-card, .pricing-card');
+      animatedElements.forEach((element, index) => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(element);
+      });
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979129d543b4cfe2',t:'MTc1Njg1OTY4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
