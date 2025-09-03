@@ -535,61 +535,102 @@ body {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border);
   padding: 100px 0 50px;
+  text-align: center;
 }
 
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 60px;
-  margin-bottom: 60px;
-}
-
-.footer-section h3 {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 32px;
-  color: var(--text);
-  letter-spacing: -0.01em;
-}
-
-.footer-section a {
-  color: var(--text-muted);
-  text-decoration: none;
-  display: block;
-  margin-bottom: 16px;
-  transition: color 0.3s;
-  font-size: 16px;
-  font-weight: 300;
-}
-
-.footer-section a:hover {
-  color: var(--primary);
-}
-
-.social-links {
-  display: flex;
-  gap: 16px;
-  margin-top: 32px;
-}
-
-.social-link {
-  width: 56px;
-  height: 56px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 50%;
+/* Share Button */
+.share-wrapper {
+  --gap: 0.5em;
+  --radius: 0.35em;
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: center;
-  font-size: 24px;
-  transition: all 0.4s ease;
+  --dot-bg: var(--bg-secondary);
+  --dot-color: var(--card);
+  --dot-size: 1px;
+  --dot-space: 22px;
+  background:
+    linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  border: 0.1em solid var(--border);
+  padding: 0.5em;
+  border-radius: var(--radius);
+  box-shadow: 0 0 1em 0.5em rgba(124, 92, 255, 0.1);
+  cursor: pointer;
+  margin: 0 auto 60px;
+  max-width: 200px;
+  transition: all 0.3s ease;
 }
 
-.social-link:hover {
-  background: var(--primary);
-  color: white;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(124, 92, 255, 0.3);
+.share-wrapper:hover {
+  box-shadow: 0 0 1.5em 0.8em rgba(124, 92, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.check[type="checkbox"] {
+  display: none;
+}
+
+.share-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: -0.25em;
+  margin-bottom: -0.25em;
+}
+
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: 0.5em;
+  fill: var(--text);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.icon.active {
+  display: none;
+  fill: var(--primary);
+}
+
+.check[type="checkbox"]:checked + .share-container .icon.active {
+  display: inline-block;
+  animation: pop 0.5s ease-in-out;
+}
+
+.check[type="checkbox"]:checked + .share-container .icon.inactive {
+  display: none;
+}
+
+.share-text {
+  margin-left: 0.5em;
+  padding: 0.5em;
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .footer-bottom {
@@ -950,46 +991,33 @@ body {
     </section>
 
     <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3 data-i18n="footer.company.title">Business Bots</h3>
-          <p data-i18n="footer.company.desc">Creamos webs profesionales que convierten visitantes en clientes. Especialistas en integración con WhatsApp.</p>
-          <div class="social-links">
-            <a href="https://instagram.com/businessbots.es" class="social-link" target="_blank">📷</a>
-            <a href="https://facebook.com/businessbots.es" class="social-link" target="_blank">📘</a>
-            <a href="https://linkedin.com/company/businessbots" class="social-link" target="_blank">💼</a>
-            <a href="https://twitter.com/businessbots_es" class="social-link" target="_blank">🐦</a>
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h3 data-i18n="footer.services.title">Servicios</h3>
-          <a href="#" data-i18n="footer.services.landing">Landing Pages</a>
-          <a href="#" data-i18n="footer.services.booking">Interfaces de Reservas</a>
-          <a href="#" data-i18n="footer.services.whatsapp">Bots de WhatsApp</a>
-          <a href="#" data-i18n="footer.services.maintenance">Mantenimiento Web</a>
-          <a href="#" data-i18n="footer.services.seo">Optimización SEO</a>
-        </div>
-        
-        <div class="footer-section">
-          <h3 data-i18n="footer.contact.title">Contacto</h3>
-          <a href="tel:+34631690524">📞 +34 631 69 05 24</a>
-          <a href="mailto:businessbots.info.gmail.com">📧 businessbots.info.gmail.com</a>
-          <a href="#" onclick="openWhatsApp()">📱 WhatsApp</a>
-          <a href="#">📍 Madrid, España</a>
-        </div>
-        
-        <div class="footer-section">
-          <h3 data-i18n="footer.legal.title">Legal</h3>
-          <a href="#" data-i18n="footer.legal.privacy">Política de Privacidad</a>
-          <a href="#" data-i18n="footer.legal.terms">Términos y Condiciones</a>
-          <a href="#" data-i18n="footer.legal.cookies">Política de Cookies</a>
-          <a href="#" data-i18n="footer.legal.gdpr">Protección de Datos</a>
-        </div>
+      <div class="share-wrapper">
+        <input id="share-toggle" type="checkbox" class="check" />
+        <label for="share-toggle" class="share-container">
+          <svg
+            class="icon inactive"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M18 16.08C17.24 16.08 16.56 16.38 16.05 16.87L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.95 7.13C16.46 7.62 17.24 7.92 18 7.92C19.66 7.92 21 6.58 21 4.92C21 3.26 19.66 1.92 18 1.92C16.34 1.92 15 3.26 15 4.92C15 5.16 15.04 5.39 15.09 5.62L8.05 9.79C7.54 9.3 6.76 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.76 15 7.54 14.7 8.05 14.21L15.18 18.38C15.13 18.61 15.09 18.84 15.09 19.08C15.09 20.74 16.43 22.08 18.09 22.08C19.75 22.08 21.09 20.74 21.09 19.08C21.09 17.42 19.75 16.08 18 16.08Z"
+            ></path>
+          </svg>
+          <svg
+            class="icon active"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M18 16.08C17.24 16.08 16.56 16.38 16.05 16.87L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.95 7.13C16.46 7.62 17.24 7.92 18 7.92C19.66 7.92 21 6.58 21 4.92C21 3.26 19.66 1.92 18 1.92C16.34 1.92 15 3.26 15 4.92C15 5.16 15.04 5.39 15.09 5.62L8.05 9.79C7.54 9.3 6.76 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.76 15 7.54 14.7 8.05 14.21L15.18 18.38C15.13 18.61 15.09 18.84 15.09 19.08C15.09 20.74 16.43 22.08 18.09 22.08C19.75 22.08 21.09 20.74 21.09 19.08C21.09 17.42 19.75 16.08 18 16.08Z"
+            ></path>
+          </svg>
+          <span class="share-text" data-i18n="footer.share">Compartir</span>
+        </label>
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; 2024 Business Bots. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+        <p>&copy; 2025 Business Bots. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
       </div>
     </footer>
   </div>
@@ -1071,28 +1099,7 @@ body {
           cta: "📱 Contactar Ahora por WhatsApp"
         },
         footer: {
-          company: {
-            title: "Business Bots",
-            desc: "Creamos webs profesionales que convierten visitantes en clientes. Especialistas en integración con WhatsApp."
-          },
-          services: {
-            title: "Servicios",
-            landing: "Landing Pages",
-            booking: "Interfaces de Reservas",
-            whatsapp: "Bots de WhatsApp",
-            maintenance: "Mantenimiento Web",
-            seo: "Optimización SEO"
-          },
-          contact: {
-            title: "Contacto"
-          },
-          legal: {
-            title: "Legal",
-            privacy: "Política de Privacidad",
-            terms: "Términos y Condiciones",
-            cookies: "Política de Cookies",
-            gdpr: "Protección de Datos"
-          },
+          share: "Compartir",
           rights: "Todos los derechos reservados."
         }
       },
@@ -1170,28 +1177,7 @@ body {
           cta: "📱 Contact Now via WhatsApp"
         },
         footer: {
-          company: {
-            title: "Business Bots",
-            desc: "We create professional websites that convert visitors into customers. WhatsApp integration specialists."
-          },
-          services: {
-            title: "Services",
-            landing: "Landing Pages",
-            booking: "Booking Interfaces",
-            whatsapp: "WhatsApp Bots",
-            maintenance: "Web Maintenance",
-            seo: "SEO Optimization"
-          },
-          contact: {
-            title: "Contact"
-          },
-          legal: {
-            title: "Legal",
-            privacy: "Privacy Policy",
-            terms: "Terms and Conditions",
-            cookies: "Cookie Policy",
-            gdpr: "Data Protection"
-          },
+          share: "Share",
           rights: "All rights reserved."
         }
       },
@@ -1269,28 +1255,7 @@ body {
           cta: "📱 Contacter Maintenant via WhatsApp"
         },
         footer: {
-          company: {
-            title: "Business Bots",
-            desc: "Nous créons des sites web professionnels qui convertissent les visiteurs en clients. Spécialistes de l'intégration WhatsApp."
-          },
-          services: {
-            title: "Services",
-            landing: "Landing Pages",
-            booking: "Interfaces de Réservation",
-            whatsapp: "Bots WhatsApp",
-            maintenance: "Maintenance Web",
-            seo: "Optimisation SEO"
-          },
-          contact: {
-            title: "Contact"
-          },
-          legal: {
-            title: "Légal",
-            privacy: "Politique de Confidentialité",
-            terms: "Conditions Générales",
-            cookies: "Politique des Cookies",
-            gdpr: "Protection des Données"
-          },
+          share: "Partager",
           rights: "Tous droits réservés."
         }
       },
@@ -1368,28 +1333,7 @@ body {
           cta: "📱 Jetzt via WhatsApp Kontaktieren"
         },
         footer: {
-          company: {
-            title: "Business Bots",
-            desc: "Wir erstellen professionelle Websites, die Besucher in Kunden verwandeln. WhatsApp-Integrationsspezialisten."
-          },
-          services: {
-            title: "Dienstleistungen",
-            landing: "Landing Pages",
-            booking: "Buchungsschnittstellen",
-            whatsapp: "WhatsApp Bots",
-            maintenance: "Web-Wartung",
-            seo: "SEO-Optimierung"
-          },
-          contact: {
-            title: "Kontakt"
-          },
-          legal: {
-            title: "Rechtliches",
-            privacy: "Datenschutzrichtlinie",
-            terms: "Allgemeine Geschäftsbedingungen",
-            cookies: "Cookie-Richtlinie",
-            gdpr: "Datenschutz"
-          },
+          share: "Teilen",
           rights: "Alle Rechte vorbehalten."
         }
       },
@@ -1467,28 +1411,7 @@ body {
           cta: "📱 Contatta Ora via WhatsApp"
         },
         footer: {
-          company: {
-            title: "Business Bots",
-            desc: "Creiamo siti web professionali che convertono i visitatori in clienti. Specialisti nell'integrazione WhatsApp."
-          },
-          services: {
-            title: "Servizi",
-            landing: "Landing Pages",
-            booking: "Interfacce di Prenotazione",
-            whatsapp: "Bot WhatsApp",
-            maintenance: "Manutenzione Web",
-            seo: "Ottimizzazione SEO"
-          },
-          contact: {
-            title: "Contatto"
-          },
-          legal: {
-            title: "Legale",
-            privacy: "Privacy Policy",
-            terms: "Termini e Condizioni",
-            cookies: "Cookie Policy",
-            gdpr: "Protezione Dati"
-          },
+          share: "Condividi",
           rights: "Tutti i diritti riservati."
         }
       }
@@ -1539,6 +1462,39 @@ body {
       window.open(whatsappUrl, '_blank');
     }
 
+    // Share functionality
+    function shareWebsite() {
+      const shareData = {
+        title: 'Business Bots - Tu Web Profesional desde 500€',
+        text: 'Descubre esta increíble oferta para crear tu web profesional',
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        navigator.share(shareData);
+      } else {
+        // Fallback: copy to clipboard
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          alert('¡Enlace copiado al portapapeles!');
+        });
+      }
+    }
+
+    // Add share functionality to the share button
+    document.addEventListener('DOMContentLoaded', () => {
+      const shareToggle = document.getElementById('share-toggle');
+      if (shareToggle) {
+        shareToggle.addEventListener('change', () => {
+          if (shareToggle.checked) {
+            setTimeout(() => {
+              shareWebsite();
+              shareToggle.checked = false;
+            }, 500);
+          }
+        });
+      }
+    });
+
     // Smooth scrolling
     function scrollToExamples() {
       document.getElementById('examples').scrollIntoView({ 
@@ -1579,5 +1535,5 @@ body {
       });
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979888b123a3cfe2',t:'MTc1NjkzNjk3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9798a42b24cdcfe2',t:'MTc1NjkzODA5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
